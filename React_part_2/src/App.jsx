@@ -1,57 +1,25 @@
-// Two way binding in forms - check boxes and radio  
+// Two way binding in forms - Todo List part_1
 
-import React from 'react'
-import { useState } from 'react';
+import { nanoid } from "nanoid";
+import { useState } from "react";
+import Create from "./Create";
+import Read from "./Read";
 
 const App = () => {
+  const [todos, settodos] = useState([
+    {
+      id: nanoid(),
+      title: "Demo task",
+      isCompleted: false,
+    },
+  ]);
 
-  const PreventReload = (e) =>{
-    e.preventDefault();
-  }
-
-  const [completed, setcompleted] = useState(true);
-  const [Gender, setGender] = useState("Male")
   return (
     <>
-      <h1>Two way binding - check boxes and radio buttons .</h1>
-      <form onSubmit={PreventReload}>
-        <input
-          value="Male"
-          onChange={(e) => {
-            setGender(e.target.value);
-          }}
-          type="radio"
-          checked ={Gender == "Male" && true}
-        />
-        Male
-        <br />
-        <br />
-        <input
-          value="Female"
-          onChange={(e) => {
-            setGender(e.target.value);
-          }}
-          type="radio"
-          checked = {Gender == "Female" && true}
-        />
-        Female
-        <br />
-        <br />
-        <input
-          checked = {completed}
-          onChange={(e) => {
-            setcompleted(e.target.checked);
-          }}
-          type="checkbox"
-        />
-        completed
-        <br />
-        <br />
-        <button> submit </button>
-      </form>
+      <Create todos={todos} settodos={settodos} />
+      <Read todos={todos} settodos={settodos} />
     </>
   );
-}
+};
 
-export default App
-
+export default App;
