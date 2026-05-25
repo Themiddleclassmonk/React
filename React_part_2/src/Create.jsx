@@ -20,22 +20,27 @@ const Create = (props) => {
       settitle("");
     };
   return (
-    <>
-      <h1>Two way binding - TOdo list .</h1>
+    <div className=" w-[60%] p-10 ">
+      <h1 className="text-6xl font-thin ">
+        Two way <span className='text-red-400'>Binding</span> - Todo list .
+      </h1>
       <form onSubmit={SubmitHandler}>
         <br />
         <br />
         <input
+          className="border-b text-thin text-2xl w-full p-2 mb-5"
           onChange={(e) => {
             settitle(e.target.value);
           }}
           type="text"
-          placeholder="title"
+          placeholder="Title"
           value={title}
         />
-        <button> submit </button>
+        <button className="border text-thin text-xl p-2 rounded-md">
+          Create Todo
+        </button>
       </form>
-    </>
+    </div>
   );
 }
 

@@ -15,10 +15,10 @@ const App = () => {
   ]);
 
   return (
-    <>
+    <div className=" flex w-screen h-screen bg-gray-800 p-10 text-white ">
       <Create todos={todos} settodos={settodos} />
       <Read todos={todos} settodos={settodos} />
-    </>
+    </div>
   );
 };
 
