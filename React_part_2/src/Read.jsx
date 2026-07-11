@@ -1,3 +1,5 @@
+import { toast } from 'react-toastify'
+
 const Read = (props) => {
   const todos = props.todos;
   const settodoos = props.settodos;
@@ -5,6 +7,7 @@ const Read = (props) => {
   const DeleteHandler = (id) => {
     const filteredtodos = todos.filter((todo) => todo.id != id);
     settodoos(filteredtodos);
+    toast.error("todo deleted !!");
   };
 
   const renedrTodos = todos.map((todo) => {
@@ -22,7 +25,7 @@ const Read = (props) => {
         </span>
       </li>
     );
-  });
+  });                             
   return (
     <div className="p-10  rounded-sm w-[40%] ">
       <h1 className="text-6xl font-thin pb-10 ">
